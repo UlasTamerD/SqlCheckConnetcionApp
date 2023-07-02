@@ -21,7 +21,7 @@ namespace SqlTest
             }
             else
             {
-                baglantiac();
+                openconnection();
             }
 
         }
@@ -36,18 +36,18 @@ namespace SqlTest
             }
             else
             {
-                BaglantiKapat();
+                closeconnection();
             }
         }
 
 
         private void BtnConCheck_Click(object sender, EventArgs e)
         {
-            BaglantiTest();
+            checkconnection();
         }
 
         //--------------------------------------- Local Classes ---------------------------------------
-        private void BaglantiTest()
+        private void checkconnection()
         {
             if (conn.State == ConnectionState.Open)
             {
@@ -63,7 +63,7 @@ namespace SqlTest
             }
         }
 
-        private void BaglantiKapat()
+        private void closeconnection()
         {
             conn.Close();
             if (conn.State == ConnectionState.Closed)
@@ -73,7 +73,7 @@ namespace SqlTest
                 pictureBox1.Image = Properties.Resources.NoConn;
             }
         }
-        private void baglantiac()
+        private void openconnection()
         {
             conn.Open();
             if (conn.State == ConnectionState.Open)
